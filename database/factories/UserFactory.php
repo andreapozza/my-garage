@@ -37,4 +37,19 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    /**
+     * Indicate the user'locale.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function admin()
+    {
+        return $this->state(function (array $attributes) {
+            $role = \TCG\Voyager\Models\Role::where('name', 'admin')->firstOrFail();
+            return [
+                'role_id'  => $role->id,
+            ];
+        });
+    }
 }
