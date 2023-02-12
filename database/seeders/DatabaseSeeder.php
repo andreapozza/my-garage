@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\User;
+use App\Models\Garage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +26,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             VoyagerDatabaseSeeder::class,
+            GarageSeeder::class,
+            VehicleSeeder::class,
         ]);
             
         if ( ! User::exists()) {
@@ -33,6 +36,11 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@admin.com'
             ]);
         }
+
+        Garage::create([
+            'name' => 'Test',
+            'user_id' => 1
+        ]);
 
     }
 }

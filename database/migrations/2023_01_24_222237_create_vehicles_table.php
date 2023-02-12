@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Garage::class)->constrained();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('plate')->unique();
             $table->boolean('notify')->default(true);
             $table->date('revision')->nullable();
