@@ -18,8 +18,8 @@
                     </li>
                     @foreach ($segments as $segment)
                         @php
-                        $segment = __($segment);
                         $url .= '/'.$segment;
+                        $segment = __($segment);
                         @endphp
                         @if ($loop->last)
                             <li>{{ ucfirst(urldecode($segment)) }}</li>
